@@ -41,7 +41,7 @@ const ship = nation({
   })
 });
 
-ship.action((state) => ({
+ship.action(state => ({
   setSwimming: (val) => {
     state().swimming = val;
   },
@@ -76,6 +76,21 @@ console.log(ship.state().name);
 
 console.log(ship.state().swimming);
 // => true
+```
+
+##### Computed properties
+
+Computed properties can be accessed like normal state values. They are computed every time the state changes.
+
+```
+ship.computed(state => ({
+  swimmingName: () => {
+    return `The ${state().swimming} is ${state().name == true ? 'swimming' : 'not swimming'}.`;
+  }
+}));
+
+console.log(ship.state().swimmingName);
+// => The enterprise is swimming.
 ```
 
 ## License
