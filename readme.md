@@ -18,7 +18,7 @@
  - __Minimal__: Nation is a fully functional state management lib weighing about 500kb.
  - __Easy__: Nation's API is as minimal as possible.
  - __Immutable__: State can only be set in actions or using `setState`.
- - __Reactive__: Update event is emitted on every state change.
+ - __Reactive__: The update event is emitted on every state change.
 
 ## Philosophy
 
