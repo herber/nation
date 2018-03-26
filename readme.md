@@ -14,17 +14,17 @@
 
 ## Features
 
- - __Functional__: Nation enforces functional programming
+ - __Functional__: Nation enforces functional programming.
  - __Minimal__: Nation is a fully functional state management lib weighing about 500kb.
  - __Easy__: Nation's API is as minimal as possible.
- - __Immutable__: State can only be set in actions or using `setState`
+ - __Immutable__: State can only be set in actions or using `setState`.
  - __Reactive__: Update event is emitted on every state change.
 
 ## Philosophy
 
-State management libraries often weigh multiple kilobytes, even though most of the time you just need a small part of their API. __Nation's__ approach is different - nation just includes the bare minimum state management functionality.
+State management libraries often weigh multiple kilobytes, even though most of the time you just need a small part of their API. __Nation's__ approach is different - nation only includes the bare minimum state management functionality.
 
-Nation enforces functional programming, this allows nation to be a bit smaller in size and makes you code more explicit.
+Nation enforces functional programming, this allows nation to be even tinier and makes you code more explicit.
 
 ## Install
 
