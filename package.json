@@ -1,0 +1,46 @@
+{
+	"name": "nation",
+	"version": "1.0.0",
+	"description": "Minimalist state management",
+	"license": "MIT",
+	"repository": "herber/nation",
+	"author": {
+		"name": "Tobias Herber",
+		"email": "tobihrbr@gmail.com",
+		"url": "tobihrbr.com"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "formatted && jest"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"state",
+		"management",
+		"redux",
+		"flux",
+		"tiny",
+		"small"
+	],
+	"dependencies": {
+		"assigner": "^1.0.0",
+		"mitt": "^1.1.3"
+	},
+	"devDependencies": {
+		"codecov": "^3.0.0",
+		"formatted": "^1.0.0",
+		"jest": "^22.4.3"
+	},
+	"jest": {
+		"collectCoverage": true,
+		"coverageDirectory": "./coverage",
+		"coverageReporters": [
+			"lcov",
+			"text"
+		]
+	}
+}
