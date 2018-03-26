@@ -6,6 +6,10 @@
   <a href="https://travis-ci.org/herber/nation">
     <img src="https://travis-ci.org/herber/nation.svg?branch=master" alt="Build Status">
   </a>
+
+  <a href="https://codecov.io/gh/herber/nation">
+    <img src="https://codecov.io/gh/herber/nation/branch/master/graph/badge.svg" />
+  </a>
 </p>
 
 ## Features
