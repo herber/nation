@@ -47,7 +47,7 @@ console.log(ship.state().swimming);
 // => true
 ```
 
-##### Actions
+#### Actions
 
 ```js
 ship.action(state => ({
@@ -69,7 +69,7 @@ console.log(ship.state().swimming);
 // => false
 ```
 
-##### State can also be set using `setState`
+#### State can also be set using `setState`
 
 ```js
 ship.setState({
@@ -84,7 +84,7 @@ console.log(ship.state().swimming);
 // => true
 ```
 
-##### Computed properties
+#### Computed properties
 
 Computed properties can be accessed like normal state values. They are computed every time the state changes.
 
@@ -99,7 +99,7 @@ console.log(ship.state().swimmingName);
 // => 'The enterprise is swimming.'
 ```
 
-##### OnChange event
+#### OnChange event
 
 ```js
 ship.emitter.on('state-change', (state) => {
