@@ -18,6 +18,7 @@
  - __Minimal__: Nation is a fully functional state management lib weighing about 500kb.
  - __Easy__: Nation's API is as minimal as possible.
  - __Immutable__: State can only be set in actions or using `setState`
+ - __Reactive__: Update event is emitted on every state change.
 
 ## Philosophy
 
@@ -82,7 +83,7 @@ console.log(ship.state().swimming);
 
 Computed properties can be accessed like normal state values. They are computed every time the state changes.
 
-```
+```js
 ship.computed(state => ({
   swimmingName: () => {
     return `The ${state().swimming} is ${state().name == true ? 'swimming' : 'not swimming'}.`;
@@ -91,6 +92,14 @@ ship.computed(state => ({
 
 console.log(ship.state().swimmingName);
 // => The enterprise is swimming.
+```
+
+##### OnChange event
+
+```js
+ship.emitter.on('state-change', (state) => {
+  console.log('The state has changed - State: ', state);
+});
 ```
 
 ## License
