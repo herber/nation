@@ -36,12 +36,20 @@ $ npm install nation
 
 ```js
 const nation = require('nation');
+
 const ship = nation({
   initial: () => ({
     swimming: true
   })
 });
 
+console.log(ship.state().swimming);
+// => true
+```
+
+##### Actions
+
+```js
 ship.action(state => ({
   setSwimming: (val) => {
     state().swimming = val;
@@ -50,9 +58,6 @@ ship.action(state => ({
     state().name = val;
   }
 }));
-
-console.log(ship.state().swimming);
-// => true
 
 ship.actions().setName('merry');
 ship.actions().setSwimming(false);
@@ -91,7 +96,7 @@ ship.computed(state => ({
 }));
 
 console.log(ship.state().swimmingName);
-// => The enterprise is swimming.
+// => 'The enterprise is swimming.'
 ```
 
 ##### OnChange event
