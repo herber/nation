@@ -94,7 +94,7 @@ test('state change events', done => {
   const state1 = nation();
   let run = 0;
 
-  state1.emitter.on('state-change', state => {
+  state1.onChange(state => {
     run++;
 
     if (run == 2) done();
