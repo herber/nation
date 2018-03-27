@@ -99,10 +99,12 @@ console.log(ship.state().swimmingName);
 // => 'The enterprise is swimming.'
 ```
 
-#### OnChange event
+#### Lifecycle
+
+Nations lifecycle consists of a single method: `onChange`.
 
 ```js
-ship.emitter.on('state-change', (state) => {
+ship.onChange((state) => {
   console.log('The state has changed - State: ', state);
 });
 ```
