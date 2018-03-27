@@ -27,8 +27,7 @@
 		"small"
 	],
 	"dependencies": {
-		"assigner": "^1.0.0",
-		"mitt": "^1.1.3"
+		"assigner": "^1.0.0"
 	},
 	"devDependencies": {
 		"codecov": "^3.0.0",
