@@ -15,7 +15,7 @@ test('set and get state', () => {
   expect(state1.state()).toEqual({ foo: 'bar', bar: 'x' });
 });
 
-test('executes actions', () => {
+test('executes actions', done => {
   const state1 = nation();
 
   state1.setState({ foo: 'bar', bar: 'baz' });
@@ -33,16 +33,34 @@ test('executes actions', () => {
     },
     setBaz: val => {
       state().baz = val;
+    },
+    setAsync: async val => {
+      const a = () =>
+        new Promise(resolve => {
+          setTimeout(() => {
+            resolve(val);
+          }, 20);
+        });
+
+      state1.setState({
+        biz: await a()
+      });
     }
   }));
 
   state1.actions().setFoo('y');
   state1.actions().setBaz('a');
+  state1.actions().setAsync('async');
 
   expect(state1.state().foo).toBe('y');
   expect(state1.state().bar).toBe('x');
   expect(state1.state().baz).toBe('a');
   expect(state1.state()).toEqual({ foo: 'y', bar: 'x', baz: 'a' });
+
+  setTimeout(() => {
+    expect(state1.state().biz).toBe('async');
+    done();
+  }, 21);
 });
 
 test('initial state', () => {
