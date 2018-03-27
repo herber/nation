@@ -15,7 +15,7 @@
 ## Features
 
  - __Functional__: Nation enforces functional programming.
- - __Minimal__: Nation is a fully functional state management lib weighing about 500kb.
+ - __Minimal__: Nation is a fully functional state management lib weighing less than 500 byte.
  - __Easy__: Nation's API is as minimal as possible.
  - __Immutable__: State can only be set in actions or using `setState`.
  - __Reactive__: The update event is emitted on every state change.
@@ -107,6 +107,24 @@ Nations lifecycle consists of a single method: `onChange`.
 ship.onChange((state) => {
   console.log('The state has changed - State: ', state);
 });
+```
+
+#### Async actions
+
+Nation treats every function the same no matter if it's sync or async. The only difference is, that in async functions you have to use `setState` to set state.
+
+```js
+ship.action(state => ({
+  setAsync: async () => {
+    ship.setState({ asyncValue: await asyncFn() })
+  }
+}));
+
+ship.actions().setAsync();
+
+// Wait
+
+console.log(ship.state().asyncValue);
 ```
 
 ## License
