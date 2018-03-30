@@ -127,6 +127,33 @@ ship.actions().setAsync();
 console.log(ship.state().asyncValue);
 ```
 
+#### Nested state
+
+Nation state can be nested, the `onChange` event will be passed on, so even nested state is reactive.
+
+Nested state cannot be set using actions, you have to use `setState`.
+
+```js
+const cargo = nation({
+  initial: () => {
+    loaded: true
+  }
+});
+
+ship.setState({
+  cargo
+});
+
+ship.onChange((state) => {
+  console.log('Loaded state: '+ state.loaded);
+})
+
+cargo.setState({
+  loaded: false
+});
+// => Loaded state: false
+```
+
 ## License
 
 MIT © [Tobias Herber](http://tobihrbr.com)
