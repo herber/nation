@@ -138,3 +138,38 @@ test('state change events', done => {
   expect(state1.state().bar).toBe('x');
   expect(state1.state()).toEqual({ foo: 'y', bar: 'x' });
 });
+
+test('nested state', done => {
+  const state1 = nation();
+  const state2 = nation();
+  const state3 = nation();
+  const state4 = nation();
+
+  state4.setState({ foo: 'bar' });
+  state3.setState({ s: state4 });
+  state2.setState({ s: state3 });
+  state1.setState({ s: state2 });
+
+  expect(
+    state1
+      .state()
+      .s.state()
+      .s.state()
+      .s.state().foo
+  ).toBe('bar');
+
+  state1.onChange(state => {
+    expect(state).toEqual({ foo: 'baz' });
+    done();
+  });
+
+  state4.setState({ foo: 'baz' });
+
+  expect(
+    state1
+      .state()
+      .s.state()
+      .s.state()
+      .s.state().foo
+  ).toBe('baz');
+});
