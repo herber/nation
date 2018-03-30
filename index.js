@@ -26,6 +26,14 @@ module.exports = opts => {
     setState: diff => {
       state = assigner(state, diff);
       emit(state);
+
+      for (let d of Object.values(diff)) {
+        if (typeof d.onChange == 'function') {
+          d.onChange(s => {
+            emit(s);
+          });
+        }
+      }
     },
     action: fn => {
       // prettier-ignore
